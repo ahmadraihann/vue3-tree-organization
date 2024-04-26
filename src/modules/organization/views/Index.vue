@@ -85,7 +85,6 @@ function findElement(obj: any, id: number, id_action: number) {
 
 function buttonClick(obj: any, id: number, id_action: number, master: any) {
   if (obj?.id === id) {
-    console.log("1");
     if (master.id === id) {
       const filter_children = master.children.filter(
         (item: any) => item.id_group === id_action
@@ -134,7 +133,6 @@ function buttonClick(obj: any, id: number, id_action: number, master: any) {
       }
     }
   } else {
-    console.log("2");
     for (let i = 0; i < obj.children?.length; i++) {
       const current = obj.children[i];
 
@@ -197,7 +195,6 @@ function handleSearch() {
   const find_children = DataMasterRaw.filter(
     (item: any) => item.pid === find_item?.id
   );
-  console.log(find_item, find_children);
 
   const new_children: any = [];
   find_children.forEach((item: any) => {
@@ -225,22 +222,6 @@ function handleSearch() {
 
   show_tree.value = true;
 }
-
-watch(
-  data_model,
-  (value) => {
-    console.log("value", value);
-  },
-  { deep: true }
-);
-
-watch(
-  data,
-  (value) => {
-    console.log("value2", value);
-  },
-  { deep: true }
-);
 </script>
 
 <template lang="pug">
